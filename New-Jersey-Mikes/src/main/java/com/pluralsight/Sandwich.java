@@ -9,6 +9,7 @@ public class Sandwich {
     private String toppings;
     private String sauce;
     private String sides;
+    private boolean toastedStatus;
 
 
 }
