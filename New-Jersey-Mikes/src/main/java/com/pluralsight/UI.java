@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class UI {
@@ -33,36 +34,39 @@ public class UI {
         System.out.println("*******************");
         System.out.println("Order Menu");
         System.out.println("*******************");
-        System.out.println("Please select an option below: ");
-        System.out.println("1) Add Sandwich");
-        System.out.println("2) Add Drink");
-        System.out.println("3) Add Chips");
-        System.out.println("4) Checkout");
-        System.out.println("0) Cancel Order");
-        System.out.print("Selection: ");
-        int selection = input.nextInt();
-        input.nextLine();
-
-        switch (selection) {
-            case 1:
-                //processAddSandwich()
-                break;
-            case 2:
-                //processAddDrink()
-                break;
-            case 3:
-                //processAddChips()
-                break;
-            case 4:
-                //processCheckout()
-                break;
-            case 0:
-                //processCancelOrder()?
-                break;
+        while (true) {
+            //TODO:NEED BETTER DO YOU WANT TO ORDER ANYTHING ELSE AFTER AN ADDITION.
+            System.out.println("Please select an option below: ");
+            System.out.println("1) Add Sandwich");
+            System.out.println("2) Add Drink");
+            System.out.println("3) Add Chips");
+            System.out.println("4) Checkout");
+            System.out.println("0) Cancel Order");
+            System.out.print("Selection: ");
+            int selection = input.nextInt();
+            input.nextLine();
+            switch (selection) {
+                case 1:
+                    processAddSandwich();
+                    break;
+                case 2:
+                    processAddDrink();
+                    break;
+                case 3:
+                    processAddChips();
+                    break;
+                case 4:
+                    processCheckout();
+                    break;
+                case 0:
+                    return;
+            }
         }
     }
 
     public static void processAddSandwich() {
+        HashMap<Integer, String> sizeItems = new HashMap<>();
+//        sizeItems.put(1, )
         //TODO: NEED BETTER ERROR HANDLING IN THE FUTURE. WRAP ARROUND TRY CATCH BLOCK
         System.out.println("What size sandwich would you like? ");
         //TODO: HOW TO DISPLAY THE INCH MARKER WITHOUT CLOSING STRING
@@ -70,8 +74,8 @@ public class UI {
         System.out.println("2) Medium(8')");
         System.out.println("3) Large(12')");
         System.out.print("Selection: ");
-        //int sizeSelection = input.nextInt();
-        //input.nextLine();
+        int sizeSelection = input.nextInt();
+        input.nextLine();
 
         //WOULD WE NEED A BUNCH OF SWITCH STATEMENTS TO ASSIGN CORRECT PRICE FOR EACH?
         System.out.println("What bread would you like? ");
@@ -80,8 +84,8 @@ public class UI {
         System.out.println("3) Rye");
         System.out.println("4) Wrap");
         System.out.print("Selection: ");
-        //int breadSelection = input.nextInt();
-        //input.nextLine();
+        int breadSelection = input.nextInt();
+        input.nextLine();
 
 
         System.out.println("What kind of meat would you like? ");
@@ -94,8 +98,8 @@ public class UI {
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
 //        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
-        //int meatSelection = input.nextInt();
-        //input.nextLine();
+        int meatSelection = input.nextInt();
+        input.nextLine();
 
         System.out.println("What kind of cheese would you like? ");
         System.out.println("1) American");
@@ -104,9 +108,9 @@ public class UI {
         System.out.println("4) Swiss");
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
-        //int cheeseSelection = input.nextInt();
+        int cheeseSelection = input.nextInt();
 //        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
-        //input.nextLine();
+        input.nextLine();
 
         System.out.println("Would you like any toppings? ");
         System.out.println("1) Lettuce");
@@ -121,8 +125,8 @@ public class UI {
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
 //        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
-        //int toppingSelection = input.nextInt();
-        //input.nextLine();
+        int toppingSelection = input.nextInt();
+        input.nextLine();
 
         System.out.println("What kind of sauce would you like? ");
         System.out.println("1) Mayo");
@@ -133,26 +137,29 @@ public class UI {
         System.out.println("6) Vinaigrette");
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
-        //int sauceSelection = input.nextInt();
-        //input.nextLine();
+        int sauceSelection = input.nextInt();
+        input.nextLine();
 
         System.out.println("Would you like a side?  ");
         System.out.println("1) au jus");
         System.out.println("2) sauce");
         System.out.println("0) none");
         System.out.print("Selection: ");
-        //int sideSelection = input.nextInt();
-        //input.nextLine();
+        int sideSelection = input.nextInt();
+        input.nextLine();
 
         System.out.println("Would you like it toasted? (Y/N)");
         System.out.print("Selection: ");
-        //String toastedStatus input.nextLine().toUpper()
+        String toastedStatus = input.nextLine().toUpperCase();
         //if(toastedStatus.equals("Y") {
         //boolean status = true;
         //}
 
         //MAKE SANDWICH
         //POSSIBLE EX: Sandwich sandwich = new Sandwich(size, bread, meat, cheese, toppings, sauces, side, toasted).
+
+        System.out.println("Your sandwich is added to the order anything else? ");
+
 
     }
 
@@ -181,6 +188,10 @@ public class UI {
         //TODO: ADD THE DRINK INTO AN OBJECT.
         //POSSIBLE EX: Drink drink = new Drink(Size, Flavor)
 
+
+        System.out.println("Your drink is added to the order anything else? ");
+        return;
+
     }
 
     public static void processAddChips() {
@@ -189,8 +200,13 @@ public class UI {
         System.out.println("2) Lays");
         System.out.println("0) None"); //DO WE NEED THIS IF THEY KNOW THEY WANT A DRINK?
         System.out.print("Selection: ");
+        //int chipsSelection = input.nextInt();
+        //input.nextLine();
 
         //TODO:ADD THE CHIPS INTO AN OBJECT.
+
+        System.out.println("Your chips is added to the order anything else? ");
+
     }
 
     public static void processCheckout() {
