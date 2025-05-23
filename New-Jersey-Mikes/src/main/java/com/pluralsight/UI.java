@@ -72,9 +72,10 @@ public class UI {
         //int sizeSelection = input.nextInt();
         //WOULD WE NEED A BUNCH OF SWITCH STATEMENTS TO ASSIGN CORRECT PRICE FOR EACH?
         System.out.print("What bread would you like? ");
-        System.out.print("1) Small(4')");
-        System.out.print("2) Medium(8')");
-        System.out.print("3) Large(12')");
+        System.out.print("1) White");
+        System.out.print("2) Wheat");
+        System.out.print("3) Rye");
+        System.out.print("4) Wrap");
 
 
     }
