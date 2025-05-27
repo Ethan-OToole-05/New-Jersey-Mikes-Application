@@ -14,5 +14,6 @@ public class ReceiptGenerator {
 
     public static String makeTimestamp() {
         //Make time stamp of the current date and time of the order.
+        return "";
     }
 }
