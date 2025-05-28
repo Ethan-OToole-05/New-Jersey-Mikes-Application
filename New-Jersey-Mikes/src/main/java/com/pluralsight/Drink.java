@@ -51,10 +51,6 @@ public class Drink implements Item{
 
     @Override
     public String toString() {
-//        return "Drink{" +
-//                "flavor='" + flavor + '\'' +
-//                ", price=" + price +
-//                ", size='" + size + '\'';
         return String.format("Flavor: %s | Size: %s | Total Price: $%.2f", flavor, size, price);
     }
 }

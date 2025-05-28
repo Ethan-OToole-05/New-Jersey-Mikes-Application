@@ -143,17 +143,6 @@ public class Sandwich implements Item {
 
     @Override
     public String toString() {
-//        return "Sandwich{" +
-//                "price=" + price +
-//                ", size='" + size + '\'' +
-//                ", bread='" + bread + '\'' +
-//                ", meat=" + meat +
-//                ", cheese=" + cheese +
-//                ", toppings=" + toppings +
-//                ", sauce=" + sauce +
-//                ", sides=" + sides +
-//                ", toastedStatus=" + toastedStatus +
-//                '}';
         return String.format("Size: %s | Bread: %s | Meat(s): %s | Cheese: %s | Topping(s): %s | Sauce(s): %s | Side: %s | Toasted: %b | Total Price: $%.2f",
                 size, bread, meat, cheese, toppings, sauce, sides, toastedStatus, price );
     }

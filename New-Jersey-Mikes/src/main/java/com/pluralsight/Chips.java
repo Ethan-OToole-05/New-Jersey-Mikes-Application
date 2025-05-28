@@ -28,10 +28,6 @@ public class Chips implements Item {
 
     @Override
     public String toString() {
-//        return "Chips{" +
-//                "nameBrand='" + nameBrand + '\'' +
-//                ", price=" + price +
-//                '}';
-        return String.format("Brand: %s, Total Price: $%.2f", nameBrand, price);
+        return String.format("Brand: %s | Total Price: $%.2f", nameBrand, price);
     }
 }

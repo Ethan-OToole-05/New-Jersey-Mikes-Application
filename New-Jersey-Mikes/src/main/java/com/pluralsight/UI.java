@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UI {
     static Scanner input = new Scanner(System.in);
-//    static List<Sandwich> sandwiches;
+    //    static List<Sandwich> sandwiches;
 //    static List<Drink> drinks;
 //    static List<Chips> chips;
     static Order order = new Order();
@@ -329,7 +329,7 @@ public class UI {
         System.out.println(order.getSandwiches());
         System.out.println(order.getDrinks());
         System.out.println(order.getChips());
-        order.getTotalPrice();
+        System.out.println(order.getTotalPrice());
 
 //        if(!sandwiches.isEmpty()) {
 //            for(Sandwich sandwich : sandwiches) {
@@ -346,16 +346,7 @@ public class UI {
 //                order.addChips(chip);
 //            }
 //        }
-
         System.out.println(order.getTotalPrice());
 
-
-
-
-
     }
-
-//    public static void processCancelOrder(){
-//
-//    }
 }
