@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class UI {
     static Scanner input = new Scanner(System.in);
-    static List<Sandwich> sandwiches;
-    static List<Drink> drinks;
-    static List<Chips> chips;
+//    static List<Sandwich> sandwiches;
+//    static List<Drink> drinks;
+//    static List<Chips> chips;
+    static Order order = new Order();
 
     public static void display() {
         System.out.println("*******************");
@@ -18,9 +19,7 @@ public class UI {
         System.out.println("*******************");
         while (true) {
             //Resets for a fresh new order everytime an order is canceled.
-            sandwiches = new ArrayList<>();
-            drinks = new ArrayList<>();
-            chips = new ArrayList<>();
+            order = new Order();
             System.out.println("Main Menu");
             System.out.println("1) Place New Order");
             System.out.println("0) Exit");
@@ -246,12 +245,11 @@ public class UI {
             sandwich.setToastedStatus(false);
         }
         sandwich.calculateTotal();
-        sandwiches.add(sandwich);
-
+//        sandwiches.add(sandwich);
+        order.addSandwich(sandwich);
 
         System.out.println("Your sandwich is added to the order anything else? ");
 
-        System.out.println(sandwiches);
 
     }
 
@@ -295,10 +293,11 @@ public class UI {
             default -> System.out.println("Invalid selection. Please try again.");
         }
         drink.calculateTotal();
-        drinks.add(drink);
+//        drinks.add(drink);
+        order.addDrink(drink);
         System.out.println("Your drink is added to the order anything else? ");
 
-        System.out.println(drinks);
+//        System.out.println(drinks);
 
     }
 
@@ -317,16 +316,45 @@ public class UI {
         }
 
         selectionChips.calculateTotal();
-        chips.add(selectionChips);
+//        chips.add(selectionChips);
+        order.addChips(selectionChips);
+
 
         System.out.println("Your chips is added to the order anything else? ");
 
-        System.out.println(chips);
+//        System.out.println(chips);
 
     }
 
     public static void processCheckout() {
-        //TODO: NEED TO DISPLAY ALL ORDER DETAILS (SANDWICH, DRINK, CHIPS).
+        System.out.println("*******************");
+        System.out.println("Order Details");
+        System.out.println("*******************");
+
+        order.getTotalPrice();
+
+//        if(!sandwiches.isEmpty()) {
+//            for(Sandwich sandwich : sandwiches) {
+//                double sandwich.getPrice();
+//            }
+//        }
+//        if(!drinks.isEmpty()) {
+//            for(Drink drink : drinks) {
+//                order.addDrink(drink);
+//            }
+//        }
+//        if(!chips.isEmpty()) {
+//            for(Chips chip : chips) {
+//                order.addChips(chip);
+//            }
+//        }
+
+        System.out.println(order.getTotalPrice());
+
+
+
+
+
     }
 
 //    public static void processCancelOrder(){

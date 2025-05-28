@@ -1,20 +1,24 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
     //Holds all of our items that the customer orders.
-    private List<Sandwich> sandwiches;
-    private List<Drink> drinks;
-    private List<Chips> chips;
+    private List<Sandwich> sandwiches = new ArrayList<>();
+    private List<Drink> drinks = new ArrayList<>();
+    private List<Chips> chips = new ArrayList<>();
     private double totalPrice;
 
-    public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips, double totalPrice) {
+    public Order() {
+
+    }
+
+    public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
-        this.totalPrice = totalPrice;
     }
 
     public void addSandwich(Sandwich sandwich) {
@@ -22,6 +26,9 @@ public class Order {
     }
 
     public List<Sandwich> getSandwiches() {
+//        for(Sandwich sandwich : sandwiches) {
+//            sandwiches.add(sandwich);
+//        }
         return sandwiches;
     }
 
@@ -30,7 +37,7 @@ public class Order {
     }
 
     public List<Drink> getDrinks() {
-        return drinks;
+       return drinks;
     }
 
     public void addChips(Chips chips) {
@@ -42,8 +49,25 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        //TODO: GET THE TOTAL PRICE OF ALL THE ITEMS.
-        return 0.0;
+        double grandTotal = 0;
+        if(!sandwiches.isEmpty()) {
+            for(Sandwich sandwich : sandwiches) {
+                grandTotal += sandwich.getPrice();
+            }
+        }
+        if(!drinks.isEmpty()) {
+            for(Drink drink : drinks) {
+                grandTotal += drink.getPrice();
+            }
+        }
+        if(!chips.isEmpty()) {
+            for(Chips chip : chips) {
+                grandTotal += chip.getPrice();
+            }
+        }
+        totalPrice = grandTotal;
+        return grandTotal;
+
     }
 
     //TODO: ADD toString SUMMARY FOR ALL ITEMS AND TOTAL PRICE.

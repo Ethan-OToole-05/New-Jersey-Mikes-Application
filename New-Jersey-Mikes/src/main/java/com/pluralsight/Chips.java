@@ -10,6 +10,10 @@ public class Chips implements Item {
         return this.price;
     }
 
+    public double getPrice() {
+        return this.price;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
