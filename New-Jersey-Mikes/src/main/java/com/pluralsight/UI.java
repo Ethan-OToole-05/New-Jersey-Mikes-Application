@@ -83,7 +83,7 @@ public class UI {
         //Start to make our new sandwich.
         Sandwich sandwich = new Sandwich();
         //TODO: HOW TO DISPLAY THE INCH MARKER WITHOUT CLOSING STRING
-        for(int i = 0; i < SandwichHelper.sizes.length; i++) {
+        for (int i = 0; i < SandwichHelper.sizes.length; i++) {
             System.out.printf("%d) %s\n", i + 1, SandwichHelper.sizes[i]);
         }
         System.out.print("Selection: ");
@@ -98,7 +98,7 @@ public class UI {
 
         //WOULD WE NEED A BUNCH OF SWITCH STATEMENTS TO ASSIGN CORRECT PRICE FOR EACH?
         System.out.println("What bread would you like? ");
-        for(int i = 0; i < SandwichHelper.bread.length; i++) {
+        for (int i = 0; i < SandwichHelper.bread.length; i++) {
             System.out.printf("%d) %s\n", i + 1, SandwichHelper.bread[i]);
         }
         System.out.print("Selection: ");
@@ -113,92 +113,129 @@ public class UI {
         input.nextLine();
 
 
-        System.out.println("What kind of meat would you like? ");
-        for(int i = 0; i < SandwichHelper.meats.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, SandwichHelper.meats[i]);
+        boolean continueAnswer = true;
+        while (continueAnswer) {
+            System.out.println("What kind of meat would you like? ");
+
+            for (int i = 0; i < SandwichHelper.meats.length; i++) {
+                System.out.printf("%d) %s\n", i + 1, SandwichHelper.meats[i]);
+            }
+
+            System.out.print("Selection: ");
+
+            int meatSelection = input.nextInt();
+            switch (meatSelection) {
+                case 1 -> sandwich.addMeat("Steak");
+                case 2 -> sandwich.addMeat("Ham");
+                case 3 -> sandwich.addMeat("Salami");
+                case 4 -> sandwich.addMeat("Roast Beef");
+                case 5 -> sandwich.addMeat("Chicken");
+                case 6 -> sandwich.addMeat("Bacon");
+                default -> System.out.println("Invalid selection. Please try again.");
+            }
+            input.nextLine();
+            System.out.println("Would you like extra meat? (Y/N)");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                continueAnswer = false;
+            }
         }
 
-        System.out.print("Selection: ");
+        continueAnswer = true;
+        while (continueAnswer) {
+            System.out.println("What kind of cheese would you like? ");
+            for (int i = 0; i < SandwichHelper.cheese.length; i++) {
+                System.out.printf("%d) %s\n", i + 1, SandwichHelper.cheese[i]);
+            }
+            System.out.println("0) None"); //HANDLE LATER
+            System.out.print("Selection: ");
+            int cheeseSelection = input.nextInt();
+            switch (cheeseSelection) {
+                case 1 -> sandwich.addCheese("American");
+                case 2 -> sandwich.addCheese("Provolone");
+                case 3 -> sandwich.addCheese("Cheddar");
+                case 4 -> sandwich.addCheese("Swiss");
+                default -> System.out.println("Invalid selection. Please try again.");
+            }
+            input.nextLine();
+            System.out.println("Would you like extra cheese? (Y/N)");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                continueAnswer = false;
+            }
+        }
+        continueAnswer = true;
+        while (continueAnswer) {
+            System.out.println("Would you like any toppings? ");
+            for (int i = 0; i < SandwichHelper.regularToppings.length; i++) {
+                System.out.printf("%d) %s\n", i + 1, SandwichHelper.regularToppings[i]);
+            }
+            System.out.print("Selection: ");
+            int toppingSelection = input.nextInt();
+            switch (toppingSelection) {
+                case 1 -> sandwich.addToppings("Lettuce");
+                case 2 -> sandwich.addToppings("Peppers");
+                case 3 -> sandwich.addToppings("Onions");
+                case 4 -> sandwich.addToppings("Tomatoes");
+                case 5 -> sandwich.addToppings("Jalapenos");
+                case 6 -> sandwich.addToppings("Cucumbers");
+                case 7 -> sandwich.addToppings("Pickles");
+                case 8 -> sandwich.addToppings("Guacamole");
+                case 9 -> sandwich.addToppings("Mushrooms");
+                default -> System.out.println("Invalid selection. Please try again.");
 
-        int meatSelection = input.nextInt();
-        switch (meatSelection) {
-            case 1 -> sandwich.addMeat("Steak");
-            case 2 -> sandwich.addMeat("Ham");
-            case 3 -> sandwich.addMeat("Salami");
-            case 4 -> sandwich.addMeat("Roast Beef");
-            case 5 -> sandwich.addMeat("Chicken");
-            case 6 -> sandwich.addMeat("Bacon");
-            default -> System.out.println("Invalid selection. Please try again.");
-            //System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
+            }
+            input.nextLine();
+            System.out.println("Would you like an extra topping?");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                continueAnswer = false;
+            }
         }
-        input.nextLine();
 
-        System.out.println("What kind of cheese would you like? ");
-        for(int i = 0; i < SandwichHelper.cheese.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, SandwichHelper.cheese[i]);
+        continueAnswer = true;
+        while (continueAnswer) {
+            System.out.println("What kind of sauce would you like? ");
+            for (int i = 0; i < SandwichHelper.sauces.length; i++) {
+                System.out.printf("%d) %s\n", i + 1, SandwichHelper.sauces[i]);
+            }
+            System.out.println("0) None"); //HANDLE LATER
+            System.out.print("Selection: ");
+            int sauceSelection = input.nextInt();
+            switch (sauceSelection) {
+                case 1 -> sandwich.addSauce("Mayo");
+                case 2 -> sandwich.addSauce("Mustard");
+                case 3 -> sandwich.addSauce("Ketchup");
+                case 4 -> sandwich.addSauce("Ranch");
+                case 5 -> sandwich.addSauce("Thousand Islands");
+                case 6 -> sandwich.addSauce("Vinaigrette");
+                default -> System.out.println("Invalid selection. Please try again.");
+            }
+            input.nextLine();
+            System.out.println("Would you like more sauce?");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                continueAnswer = false;
+            }
         }
-        System.out.println("0) None"); //HANDLE LATER
-        System.out.print("Selection: ");
-        int cheeseSelection = input.nextInt();
-        switch (cheeseSelection) {
-            case 1 -> sandwich.addCheese("American");
-            case 2 -> sandwich.addCheese("Provolone");
-            case 3 -> sandwich.addCheese("Cheddar");
-            case 4 -> sandwich.addCheese("Swiss");
-            default -> System.out.println("Invalid selection. Please try again.");
-        }
-//        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
-        input.nextLine();
-
-        System.out.println("Would you like any toppings? ");
-        for(int i = 0; i < SandwichHelper.regularToppings.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, SandwichHelper.regularToppings[i]);
-        }
-//        System.out.println("0) None"); //HANDLE LATER
-        System.out.print("Selection: ");
-        int toppingSelection = input.nextInt();
-        switch (toppingSelection) {
-            case 1 -> sandwich.addToppings("Lettuce");
-            case 2 -> sandwich.addToppings("Peppers");
-            case 3 -> sandwich.addToppings("Onions");
-            case 4 -> sandwich.addToppings("Tomatoes");
-            case 5 -> sandwich.addToppings("Jalapenos");
-            case 6 -> sandwich.addToppings("Cucumbers");
-            case 7 -> sandwich.addToppings("Pickles");
-            case 8 -> sandwich.addToppings("Guacamole");
-            case 9 -> sandwich.addToppings("Mushrooms");
-            default -> System.out.println("Invalid selection. Please try again.");
-            //System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
-        }
-        input.nextLine();
-
-        System.out.println("What kind of sauce would you like? ");
-        for(int i = 0; i < SandwichHelper.sauces.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, SandwichHelper.sauces[i]);
-        }
-//        System.out.println("0) None"); //HANDLE LATER
-        System.out.print("Selection: ");
-        int sauceSelection = input.nextInt();
-        switch (sauceSelection) {
-            case 1 -> sandwich.addSauce("Mayo");
-            case 2 -> sandwich.addSauce("Mustard");
-            case 3 -> sandwich.addSauce("Ketchup");
-            case 4 -> sandwich.addSauce("Ranch");
-            case 5 -> sandwich.addSauce("Thousand Islands");
-            case 6 -> sandwich.addSauce("Vinaigrette");
-            default -> System.out.println("Invalid selection. Please try again.");
-        }
-        input.nextLine();
 
         System.out.println("Would you like a side?  ");
-        for(int i = 0; i < SandwichHelper.sides.length; i++) {
+        for (int i = 0; i < SandwichHelper.sides.length; i++) {
             System.out.printf("%d) %s\n", i + 1, SandwichHelper.sides[i]);
         }
+        System.out.println("0) None");
         System.out.print("Selection: ");
         int sideSelection = input.nextInt();
         switch (sideSelection) {
+            case 0 -> System.out.println("No side selected");
             case 1 -> sandwich.addSide("Au Jus");
             case 2 -> sandwich.addSide("Sauce");
+
+
             default -> System.out.println("Invalid selection. Please try again.");
         }
         input.nextLine();
@@ -208,8 +245,7 @@ public class UI {
         String toastedStatus = input.nextLine().toUpperCase();
         if (toastedStatus.equals("Y")) {
             sandwich.setToastedStatus(true);
-        }
-        else {
+        } else {
             sandwich.setToastedStatus(false);
         }
 

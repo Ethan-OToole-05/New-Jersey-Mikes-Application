@@ -123,13 +123,17 @@ public class Sandwich implements Item {
 
         if (meat.size() > 1) {
             //Might need loop to iterate all the extra meats and cheeses.
-            total += SandwichHelper.extraMeatPrices[sizeIndex];
+            for (int i = meat.size(); i > 1; i--) {
+                total += SandwichHelper.extraMeatPrices[sizeIndex];
+            }
         }
 
         total += SandwichHelper.cheesePrices[sizeIndex];
 
-        if(cheese.size() > 1) {
-            total += SandwichHelper.extraCheesePrices[sizeIndex];
+        if (cheese.size() > 1) {
+            for (int i = cheese.size(); i > 1; i--) {
+                total += SandwichHelper.extraCheesePrices[sizeIndex];
+            }
         }
 
         this.price = total;
