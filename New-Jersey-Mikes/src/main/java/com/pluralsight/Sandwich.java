@@ -1,19 +1,30 @@
 package com.pluralsight;
 
+import com.pluralsight.util.SandwichHelper;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements Item{
     private double price;
-    private int size;
+    private String size;
     private String bread;
-    private List<String> meat;
-    private List<String> cheese;
-    private List<String> toppings;
-    private List<String> sauce;
-    private List<String> sides;
+    private List<String> meat = new ArrayList<>();
+    private List<String> cheese = new ArrayList<>();
+    private List<String> toppings = new ArrayList<>();
+    private List<String> sauce = new ArrayList<>();
+    private List<String> sides = new ArrayList<>();
     private boolean toastedStatus;
 
-    public Sandwich(double price, int size, String bread, List<String> meat, List<String> cheese, List<String> toppings, List<String> sauce, List<String> sides, boolean toastedStatus) {
+    public Sandwich() {
+
+    }
+
+    public Sandwich() {
+
+    }
+
+    public Sandwich(double price, String size, String bread, List<String> meat, List<String> cheese, List<String> toppings, List<String> sauce, List<String> sides, boolean toastedStatus) {
         this.price = price;
         this.size = size;
         this.bread = bread;
@@ -25,21 +36,32 @@ public class Sandwich implements Item{
         this.toastedStatus = toastedStatus;
     }
 
+
     public void addMeat(String meat) {
         this.meat.add(meat);
     }
 
-    public void addSize(int size) {
-        this.size = size;
+    public void addCheese(String cheese) {
+        this.cheese.add(cheese);
     }
 
+    public void addToppings(String toppings) {
+        this.toppings.add(toppings);
+    }
 
+    public void addSauce(String sauce) {
+        this.sauce.add(sauce);
+    }
+
+    public void addSide(String side) {
+        this.sides.add(side);
+    }
 
     public double getPrice() {
         return price;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
@@ -71,8 +93,35 @@ public class Sandwich implements Item{
         return toastedStatus;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setBread(String bread) {
+        this.bread = bread;
+    }
+
+    public void setToastedStatus(boolean toastedStatus) {
+        this.toastedStatus = toastedStatus;
+    }
+
     @Override
     public double calculateTotal() {
-        return 0.0;
+        double total = 0;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "size='" + size + '\'' +
+                ", bread='" + bread + '\'' +
+                ", meat=" + meat +
+                ", cheese=" + cheese +
+                ", toppings=" + toppings +
+                ", sauce=" + sauce +
+                ", sides=" + sides +
+                ", toastedStatus=" + toastedStatus +
+                '}';
     }
 }

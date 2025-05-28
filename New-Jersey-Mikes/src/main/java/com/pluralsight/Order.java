@@ -42,7 +42,7 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        //TODO: GET THE TOTAL PRICE OF ALL THE IEMS.
+        //TODO: GET THE TOTAL PRICE OF ALL THE ITEMS.
         return 0.0;
     }
 

@@ -1,16 +1,25 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class UI {
     static Scanner input = new Scanner(System.in);
+    static List<Sandwich> sandwiches;
+    static List<Drink> drinks;
+    static List<Chips> chips;
 
     public static void display() {
         System.out.println("*******************");
         System.out.println("Welcome to the NEW Jersey Mike's!");
         System.out.println("*******************");
         while (true) {
+            //Resets for a fresh new order everytime an order is canceled.
+            sandwiches = new ArrayList<>();
+            drinks = new ArrayList<>();
+            chips = new ArrayList<>();
             System.out.println("Main Menu");
             System.out.println("1) Place New Order");
             System.out.println("0) Exit");
@@ -31,6 +40,7 @@ public class UI {
     }
 
     public static void processOrder() {
+        //Make a new order of sandwiches for every new order to reset.
         System.out.println("*******************");
         System.out.println("Order Menu");
         System.out.println("*******************");
@@ -65,16 +75,23 @@ public class UI {
     }
 
     public static void processAddSandwich() {
-        HashMap<Integer, String> sizeItems = new HashMap<>();
-//        sizeItems.put(1, )
+
         //TODO: NEED BETTER ERROR HANDLING IN THE FUTURE. WRAP ARROUND TRY CATCH BLOCK
         System.out.println("What size sandwich would you like? ");
+        //Start to make our new sandwich.
+        Sandwich sandwich = new Sandwich();
         //TODO: HOW TO DISPLAY THE INCH MARKER WITHOUT CLOSING STRING
         System.out.println("1) Small(4')");
         System.out.println("2) Medium(8')");
         System.out.println("3) Large(12')");
         System.out.print("Selection: ");
         int sizeSelection = input.nextInt();
+        switch (sizeSelection) {
+            case 1 -> sandwich.setSize("Small");
+            case 2 -> sandwich.setSize("Medium");
+            case 3 -> sandwich.setSize("Large");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
         input.nextLine();
 
         //WOULD WE NEED A BUNCH OF SWITCH STATEMENTS TO ASSIGN CORRECT PRICE FOR EACH?
@@ -85,6 +102,13 @@ public class UI {
         System.out.println("4) Wrap");
         System.out.print("Selection: ");
         int breadSelection = input.nextInt();
+        switch (breadSelection) {
+            case 1 -> sandwich.setBread("White");
+            case 2 -> sandwich.setBread("Wheat");
+            case 3 -> sandwich.setBread("Rye");
+            case 4 -> sandwich.setBread("Wrap");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
         input.nextLine();
 
 
@@ -95,10 +119,20 @@ public class UI {
         System.out.println("4) Roast Beef");
         System.out.println("5) Chicken");
         System.out.println("6) Bacon");
-        System.out.println("0) None"); //HANDLE LATER
+//        System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
-//        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
+
         int meatSelection = input.nextInt();
+        switch (meatSelection) {
+            case 1 -> sandwich.addMeat("Steak");
+            case 2 -> sandwich.addMeat("Ham");
+            case 3 -> sandwich.addMeat("Salami");
+            case 4 -> sandwich.addMeat("Roast Beef");
+            case 5 -> sandwich.addMeat("Chicken");
+            case 6 -> sandwich.addMeat("Bacon");
+            default -> System.out.println("Invalid selection. Please try again.");
+            //System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
+        }
         input.nextLine();
 
         System.out.println("What kind of cheese would you like? ");
@@ -109,6 +143,13 @@ public class UI {
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
         int cheeseSelection = input.nextInt();
+        switch (cheeseSelection) {
+            case 1 -> sandwich.addCheese("American");
+            case 2 -> sandwich.addCheese("Provolone");
+            case 3 -> sandwich.addCheese("Cheddar");
+            case 4 -> sandwich.addCheese("Swiss");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
 //        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
         input.nextLine();
 
@@ -117,15 +158,27 @@ public class UI {
         System.out.println("2) Peppers");
         System.out.println("3) Onions");
         System.out.println("4) Tomatoes");
-        System.out.println("5) Jalapenos"); //How to add a spanish n
+        System.out.println("5) Jalapenos"); //TODO: How to add a spanish n
         System.out.println("6) Cucumbers");
         System.out.println("7) Pickles");
         System.out.println("8) Guacamole");
         System.out.println("9) Mushrooms");
-        System.out.println("0) None"); //HANDLE LATER
+//        System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
-//        System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
         int toppingSelection = input.nextInt();
+        switch (toppingSelection) {
+            case 1 -> sandwich.addToppings("Lettuce");
+            case 2 -> sandwich.addToppings("Peppers");
+            case 3 -> sandwich.addToppings("Onions");
+            case 4 -> sandwich.addToppings("Tomatoes");
+            case 5 -> sandwich.addToppings("Jalapenos");
+            case 6 -> sandwich.addToppings("Cucumbers");
+            case 7 -> sandwich.addToppings("Pickles");
+            case 8 -> sandwich.addToppings("Guacamole");
+            case 9 -> sandwich.addToppings("Mushrooms");
+            default -> System.out.println("Invalid selection. Please try again.");
+            //System.out.println("Would you like extra?"); //TODO: NEED TO ADD OPTION FOR LATER.
+        }
         input.nextLine();
 
         System.out.println("What kind of sauce would you like? ");
@@ -135,9 +188,18 @@ public class UI {
         System.out.println("4) Ranch");
         System.out.println("5) Thousand Islands");
         System.out.println("6) Vinaigrette");
-        System.out.println("0) None"); //HANDLE LATER
+//        System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
         int sauceSelection = input.nextInt();
+        switch (sauceSelection) {
+            case 1 -> sandwich.addSauce("Mayo");
+            case 2 -> sandwich.addSauce("Mustard");
+            case 3 -> sandwich.addSauce("Ketchup");
+            case 4 -> sandwich.addSauce("Ranch");
+            case 5 -> sandwich.addSauce("Thousand Islands");
+            case 6 -> sandwich.addSauce("Vinaigrette");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
         input.nextLine();
 
         System.out.println("Would you like a side?  ");
@@ -146,20 +208,31 @@ public class UI {
         System.out.println("0) none");
         System.out.print("Selection: ");
         int sideSelection = input.nextInt();
+        switch (sideSelection) {
+            case 1 -> sandwich.addSide("Au Jus");
+            case 2 -> sandwich.addSide("Sauce");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
         input.nextLine();
 
         System.out.println("Would you like it toasted? (Y/N)");
         System.out.print("Selection: ");
         String toastedStatus = input.nextLine().toUpperCase();
-        //if(toastedStatus.equals("Y") {
-        //boolean status = true;
-        //}
+        if (toastedStatus.equals("Y")) {
+            sandwich.setToastedStatus(true);
+        }
+        else {
+            sandwich.setToastedStatus(false);
+        }
+
+        sandwiches.add(sandwich);
 
         //MAKE SANDWICH
-        //POSSIBLE EX: Sandwich sandwich = new Sandwich(size, bread, meat, cheese, toppings, sauces, side, toasted).
+//        sandwich = new Sandwich(size, bread, meat, cheese, toppings, sauces, side, toasted).
 
         System.out.println("Your sandwich is added to the order anything else? ");
 
+        System.out.println(sandwiches);
 
     }
 
