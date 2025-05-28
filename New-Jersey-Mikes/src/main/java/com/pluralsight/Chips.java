@@ -6,7 +6,27 @@ public class Chips implements Item {
 
     @Override
     public double calculateTotal() {
-        return 0.0;
+        this.price = 1.50;
+        return this.price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getNameBrand() {
+        return nameBrand;
+    }
+
+    public void setNameBrand(String nameBrand) {
+        this.nameBrand = nameBrand;
+    }
+
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "nameBrand='" + nameBrand + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

@@ -144,7 +144,8 @@ public class Sandwich implements Item {
     @Override
     public String toString() {
         return "Sandwich{" +
-                "size='" + size + '\'' +
+                "price=" + price +
+                ", size='" + size + '\'' +
                 ", bread='" + bread + '\'' +
                 ", meat=" + meat +
                 ", cheese=" + cheese +

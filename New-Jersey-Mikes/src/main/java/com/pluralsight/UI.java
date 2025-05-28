@@ -3,7 +3,6 @@ package com.pluralsight;
 import com.pluralsight.util.SandwichHelper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -234,8 +233,6 @@ public class UI {
             case 0 -> System.out.println("No side selected");
             case 1 -> sandwich.addSide("Au Jus");
             case 2 -> sandwich.addSide("Sauce");
-
-
             default -> System.out.println("Invalid selection. Please try again.");
         }
         input.nextLine();
@@ -248,27 +245,31 @@ public class UI {
         } else {
             sandwich.setToastedStatus(false);
         }
-
+        sandwich.calculateTotal();
         sandwiches.add(sandwich);
 
-        //MAKE SANDWICH
-//        sandwich = new Sandwich(size, bread, meat, cheese, toppings, sauces, side, toasted).
 
         System.out.println("Your sandwich is added to the order anything else? ");
 
         System.out.println(sandwiches);
-        System.out.println(sandwich.calculateTotal());
 
     }
 
     public static void processAddDrink() {
+        Drink drink = new Drink();
         System.out.println("What size drink would you like? ");
         System.out.println("1) Small");
         System.out.println("2) Medium");
         System.out.println("3) Large");
-        System.out.println("0) None"); //DO WE NEED THIS IF THEY KNOW THEY WANT A DRINK?
         System.out.print("Selection: ");
-        //int drinkSizeSelection = input.nextInt();
+        int drinkSizeSelection = input.nextInt();
+        input.nextLine();
+        switch (drinkSizeSelection) {
+            case 1 -> drink.setSize("Small");
+            case 2 -> drink.setSize("Medium");
+            case 3 -> drink.setSize("Large");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
 
         System.out.println("What kind of drink would you like? ");
         System.out.println("1) Coca-Cola");
@@ -280,30 +281,47 @@ public class UI {
         System.out.println("7) Fanta");
         System.out.println("8) Mug Root Beer");
         System.out.print("Selection: ");
-        //int flavorSelection = input.nextInt();
-        //input.nextLine();
-
-        //TODO: ADD THE DRINK INTO AN OBJECT.
-        //POSSIBLE EX: Drink drink = new Drink(Size, Flavor)
-
-
+        int flavorSelection = input.nextInt();
+        input.nextLine();
+        switch (flavorSelection) {
+            case 1 -> drink.setFlavor("Coca-Cola");
+            case 2 -> drink.setFlavor("Diet Coca-Cola");
+            case 3 -> drink.setFlavor("Sprite");
+            case 4 -> drink.setFlavor("Dr.Pepper");
+            case 5 -> drink.setFlavor("Pepsi");
+            case 6 -> drink.setFlavor("Diet Pepsi");
+            case 7 -> drink.setFlavor("Fanta");
+            case 8 -> drink.setFlavor("Mug Root Beer");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
+        drink.calculateTotal();
+        drinks.add(drink);
         System.out.println("Your drink is added to the order anything else? ");
-        return;
+
+        System.out.println(drinks);
 
     }
 
     public static void processAddChips() {
+        Chips selectionChips = new Chips();
         System.out.println("What chips would you like? ");
         System.out.println("1) Doritos");
         System.out.println("2) Lays");
-        System.out.println("0) None"); //DO WE NEED THIS IF THEY KNOW THEY WANT A DRINK?
         System.out.print("Selection: ");
-        //int chipsSelection = input.nextInt();
-        //input.nextLine();
+        int chipsSelection = input.nextInt();
+        input.nextLine();
+        switch (chipsSelection) {
+            case 1 -> selectionChips.setNameBrand("Doritos");
+            case 2 -> selectionChips.setNameBrand("Lays");
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
 
-        //TODO:ADD THE CHIPS INTO AN OBJECT.
+        selectionChips.calculateTotal();
+        chips.add(selectionChips);
 
         System.out.println("Your chips is added to the order anything else? ");
+
+        System.out.println(chips);
 
     }
 
