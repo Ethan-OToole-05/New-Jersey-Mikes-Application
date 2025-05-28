@@ -316,13 +316,9 @@ public class UI {
         }
 
         selectionChips.calculateTotal();
-//        chips.add(selectionChips);
         order.addChips(selectionChips);
 
-
         System.out.println("Your chips is added to the order anything else? ");
-
-//        System.out.println(chips);
 
     }
 
@@ -330,7 +326,9 @@ public class UI {
         System.out.println("*******************");
         System.out.println("Order Details");
         System.out.println("*******************");
-
+        System.out.println(order.getSandwiches());
+        System.out.println(order.getDrinks());
+        System.out.println(order.getChips());
         order.getTotalPrice();
 
 //        if(!sandwiches.isEmpty()) {

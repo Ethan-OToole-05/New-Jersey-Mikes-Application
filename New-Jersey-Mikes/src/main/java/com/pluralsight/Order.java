@@ -26,9 +26,6 @@ public class Order {
     }
 
     public List<Sandwich> getSandwiches() {
-//        for(Sandwich sandwich : sandwiches) {
-//            sandwiches.add(sandwich);
-//        }
         return sandwiches;
     }
 
