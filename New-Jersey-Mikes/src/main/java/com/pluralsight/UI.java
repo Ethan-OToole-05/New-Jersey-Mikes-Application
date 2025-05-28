@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.util.SandwichHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,9 +83,9 @@ public class UI {
         //Start to make our new sandwich.
         Sandwich sandwich = new Sandwich();
         //TODO: HOW TO DISPLAY THE INCH MARKER WITHOUT CLOSING STRING
-        System.out.println("1) Small(4')");
-        System.out.println("2) Medium(8')");
-        System.out.println("3) Large(12')");
+        for(int i = 0; i < SandwichHelper.sizes.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.sizes[i]);
+        }
         System.out.print("Selection: ");
         int sizeSelection = input.nextInt();
         switch (sizeSelection) {
@@ -96,10 +98,9 @@ public class UI {
 
         //WOULD WE NEED A BUNCH OF SWITCH STATEMENTS TO ASSIGN CORRECT PRICE FOR EACH?
         System.out.println("What bread would you like? ");
-        System.out.println("1) White");
-        System.out.println("2) Wheat");
-        System.out.println("3) Rye");
-        System.out.println("4) Wrap");
+        for(int i = 0; i < SandwichHelper.bread.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.bread[i]);
+        }
         System.out.print("Selection: ");
         int breadSelection = input.nextInt();
         switch (breadSelection) {
@@ -113,13 +114,10 @@ public class UI {
 
 
         System.out.println("What kind of meat would you like? ");
-        System.out.println("1) Steak");
-        System.out.println("2) Ham");
-        System.out.println("3) Salami");
-        System.out.println("4) Roast Beef");
-        System.out.println("5) Chicken");
-        System.out.println("6) Bacon");
-//        System.out.println("0) None"); //HANDLE LATER
+        for(int i = 0; i < SandwichHelper.meats.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.meats[i]);
+        }
+
         System.out.print("Selection: ");
 
         int meatSelection = input.nextInt();
@@ -136,10 +134,9 @@ public class UI {
         input.nextLine();
 
         System.out.println("What kind of cheese would you like? ");
-        System.out.println("1) American");
-        System.out.println("2) Provolone");
-        System.out.println("3) Cheddar");
-        System.out.println("4) Swiss");
+        for(int i = 0; i < SandwichHelper.cheese.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.cheese[i]);
+        }
         System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
         int cheeseSelection = input.nextInt();
@@ -154,15 +151,9 @@ public class UI {
         input.nextLine();
 
         System.out.println("Would you like any toppings? ");
-        System.out.println("1) Lettuce");
-        System.out.println("2) Peppers");
-        System.out.println("3) Onions");
-        System.out.println("4) Tomatoes");
-        System.out.println("5) Jalapenos"); //TODO: How to add a spanish n
-        System.out.println("6) Cucumbers");
-        System.out.println("7) Pickles");
-        System.out.println("8) Guacamole");
-        System.out.println("9) Mushrooms");
+        for(int i = 0; i < SandwichHelper.regularToppings.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.regularToppings[i]);
+        }
 //        System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
         int toppingSelection = input.nextInt();
@@ -182,12 +173,9 @@ public class UI {
         input.nextLine();
 
         System.out.println("What kind of sauce would you like? ");
-        System.out.println("1) Mayo");
-        System.out.println("2) Mustard");
-        System.out.println("3) Ketchup");
-        System.out.println("4) Ranch");
-        System.out.println("5) Thousand Islands");
-        System.out.println("6) Vinaigrette");
+        for(int i = 0; i < SandwichHelper.sauces.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.sauces[i]);
+        }
 //        System.out.println("0) None"); //HANDLE LATER
         System.out.print("Selection: ");
         int sauceSelection = input.nextInt();
@@ -203,9 +191,9 @@ public class UI {
         input.nextLine();
 
         System.out.println("Would you like a side?  ");
-        System.out.println("1) au jus");
-        System.out.println("2) sauce");
-        System.out.println("0) none");
+        for(int i = 0; i < SandwichHelper.sides.length; i++) {
+            System.out.printf("%d) %s\n", i + 1, SandwichHelper.sides[i]);
+        }
         System.out.print("Selection: ");
         int sideSelection = input.nextInt();
         switch (sideSelection) {
@@ -233,6 +221,7 @@ public class UI {
         System.out.println("Your sandwich is added to the order anything else? ");
 
         System.out.println(sandwiches);
+        System.out.println(sandwich.calculateTotal());
 
     }
 
