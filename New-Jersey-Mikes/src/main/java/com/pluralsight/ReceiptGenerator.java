@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -8,8 +9,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptGenerator {
-    private LocalDateTime timestamp;
-    private String filePath = "src/main/resources/Receipts";
+    private String timestamp = makeTimestamp();
+    private final String filePath = "src/main/resources/Receipts";
 
     public ReceiptGenerator(){
 
@@ -20,8 +21,30 @@ public class ReceiptGenerator {
         //- i.e.
         //20230329-121523.txt
         try{
-            FileWriter fileWriter = new FileWriter(filePath);
-            BufferedWriter writer = new BufferedWriter(fileWriter);
+            File receiptFile = new File(filePath);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile));
+
+            if(!order.getSandwiches().isEmpty()) {
+                for(Sandwich sandwich : order.getSandwiches()) {
+                    writer.write(sandwich.toString());
+                    writer.newLine();
+                }
+            }
+            if(!order.getDrinks().isEmpty()) {
+                for(Drink drink : order.getDrinks()) {
+                    writer.write(drink.toString());
+                    writer.newLine();
+                }
+            }
+            if(!order.getChips().isEmpty()) {
+                for(Chips chip : order.getChips()) {
+                    writer.write(chip.toString());
+                    writer.newLine();
+                }
+            }
+
+            writer.close();
+
 
         }catch(IOException e) {
             e.printStackTrace();
@@ -39,11 +62,11 @@ public class ReceiptGenerator {
     public String makeTimestamp() {
         //Make time stamp of the current date and time of the order.
 
-        LocalDateTime timestamp = LocalDateTime.now();
+        LocalDateTime time = LocalDateTime.now();
 
-        String formattedTimestamp = timestamp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss"));
+        String formattedTimestamp = time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss"));
 
-        this.timestamp = timestamp;
+        this.timestamp = formattedTimestamp;
 
         return formattedTimestamp;
     }

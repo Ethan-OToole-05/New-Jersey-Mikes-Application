@@ -326,10 +326,20 @@ public class UI {
         System.out.println("*******************");
         System.out.println("Order Details");
         System.out.println("*******************");
+        System.out.println("Sandwiches:");
         System.out.println(order.getSandwiches());
+        System.out.println("*******************");
+        System.out.println("Drinks: ");
         System.out.println(order.getDrinks());
+        System.out.println("*******************");
+        System.out.println("Chips: ");
         System.out.println(order.getChips());
+        System.out.println("*******************");
+        System.out.println("Total: ");
         System.out.println(order.getTotalPrice());
+
+        ReceiptGenerator receiptGenerator = new ReceiptGenerator();
+        receiptGenerator.writeReceipt(order);
 
 //        if(!sandwiches.isEmpty()) {
 //            for(Sandwich sandwich : sandwiches) {
