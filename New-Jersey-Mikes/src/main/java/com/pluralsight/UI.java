@@ -1,9 +1,6 @@
 package com.pluralsight;
 
-import com.pluralsight.models.Chips;
-import com.pluralsight.models.Drink;
-import com.pluralsight.models.Order;
-import com.pluralsight.models.Sandwich;
+import com.pluralsight.models.*;
 import com.pluralsight.util.SandwichHelper;
 
 import java.util.Scanner;
@@ -59,7 +56,18 @@ public class UI {
             input.nextLine();
             switch (selection) {
                 case 1:
-                    processAddSandwich();
+                    System.out.println("What sandwich would you like? :");
+                    System.out.println("1) BLT");
+                    System.out.println("2) Philly Cheese Steak");
+                    System.out.println("3) Custom made");
+                    int sandwichSelection = input.nextInt();
+                    input.nextLine();
+
+                    switch (sandwichSelection) {
+                        case 1 -> processAddSandwich(new BLT());
+                        case 2 -> processAddSandwich(new PhillyCheeseSteak());
+                        case 3 -> processAddSandwich(new Sandwich());
+                    }
                     break;
                 case 2:
                     processAddDrink();
@@ -76,12 +84,35 @@ public class UI {
         }
     }
 
-    public static void processAddSandwich() {
+    public static void processAddSandwich(Sandwich sandwich) {
+
+        if(sandwich instanceof BLT) {
+            System.out.println("Would you like to customize your BLT? (Y/N) ");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                sandwich.calculateTotal();
+                order.addSandwich(sandwich);
+                System.out.println("Your sandwich has been added to the order.");
+                return;
+            }
+        }
+        if(sandwich instanceof PhillyCheeseSteak) {
+            System.out.println("Would you like to customize your Philly Cheese Steak? (Y/N) ");
+            System.out.print("Selection: ");
+            String answer = input.nextLine().toUpperCase();
+            if (!answer.equals("Y")) {
+                sandwich.calculateTotal();
+                order.addSandwich(sandwich);
+                System.out.println("Your sandwich has been added to the order.");
+                return;
+            }
+        }
 
         //TODO: NEED BETTER ERROR HANDLING IN THE FUTURE. WRAP ARROUND TRY CATCH BLOCK
         System.out.println("What size sandwich would you like? ");
         //Start to make our new sandwich.
-        Sandwich sandwich = new Sandwich();
+
         //TODO: HOW TO DISPLAY THE INCH MARKER WITHOUT CLOSING STRING
         for (int i = 0; i < SandwichHelper.sizes.length; i++) {
             System.out.printf("%d) %s\n", i + 1, SandwichHelper.sizes[i]);
@@ -124,6 +155,15 @@ public class UI {
             System.out.print("Selection: ");
 
             int meatSelection = input.nextInt();
+            if(!sandwich.getMeat().isEmpty()) {
+                System.out.println("Would you like extra meat? (Y/N)");
+                System.out.print("Selection: ");
+                String answer = input.nextLine().toUpperCase();
+                if (!answer.equals("Y")) {
+                    continueAnswer = false;
+                    continue;
+                }
+            }
             switch (meatSelection) {
                 case 1 -> sandwich.addMeat("Steak");
                 case 2 -> sandwich.addMeat("Ham");

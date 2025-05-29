@@ -7,19 +7,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements Item {
-    private double price;
-    private String size;
-    private int sizeIndex = 0;
-    private String bread;
-    private List<String> meat = new ArrayList<>();
-    private List<String> cheese = new ArrayList<>();
-    private List<String> toppings = new ArrayList<>();
-    private List<String> sauce = new ArrayList<>();
-    private List<String> sides = new ArrayList<>();
-    private boolean toastedStatus;
+    protected double price;
+    protected String size;
+    protected int sizeIndex = 0;
+    protected String bread;
+    protected List<String> meat = new ArrayList<>();
+    protected List<String> cheese = new ArrayList<>();
+    protected List<String> toppings = new ArrayList<>();
+    protected List<String> sauce = new ArrayList<>();
+    protected List<String> sides = new ArrayList<>();
+    protected boolean toastedStatus;
 
     public Sandwich() {
 
+    }
+
+    public Sandwich(String size, int sizeIndex, String bread, List<String> meat, List<String> cheese, List<String> toppings, List<String> sauce, List<String> sides, boolean toastedStatus) {
+        this.size = size;
+        this.sizeIndex = sizeIndex;
+        this.bread = bread;
+        this.meat = meat;
+        this.cheese = cheese;
+        this.toppings = toppings;
+        this.sauce = sauce;
+        this.sides = sides;
+        this.toastedStatus = toastedStatus;
     }
 
     public void addMeat(String meat) {
