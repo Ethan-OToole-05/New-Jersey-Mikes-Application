@@ -9,7 +9,10 @@ public class BLT extends Sandwich {
 
     public BLT() {
         super(
-                //BASE PRICE IS: $10.50
+
+                /*
+                -We are pre-assigning all the information that makes a BLT sandwich everytime a new BLT sandwich is made.
+                 */
 
                 SandwichHelper.sizes[1],
                 1,

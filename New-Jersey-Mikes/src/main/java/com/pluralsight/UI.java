@@ -79,6 +79,7 @@ public class UI {
                     processCheckout();
                     return;
                 case 0:
+                    System.out.println("Order has been canceled.");
                     return;
                 default:
                     System.out.println("Invalid input. Please try again");
@@ -88,6 +89,11 @@ public class UI {
 
     public static void processAddSandwich(Sandwich sandwich) {
 
+        /*
+        -The first process of adding a message is to check if it is a BLT or Philly Cheese Steak.
+        -If not then we know it's a custom sandwich to build.
+         */
+        boolean continueAnswer = true;
         if (sandwich instanceof BLT) {
             System.out.println("Would you like to customize your BLT? (Y/N) ");
             System.out.print("Selection: ");
@@ -120,12 +126,18 @@ public class UI {
 
         System.out.print("Selection: ");
         int sizeSelection = input.nextInt();
-        switch (sizeSelection) {
-            //TODO ERROR HANDLE BETTER
-            case 1 -> sandwich.setSize("Small");
-            case 2 -> sandwich.setSize("Medium");
-            case 3 -> sandwich.setSize("Large");
-            default -> System.out.println("Invalid selection. Please try again.");
+        while(true) {
+            switch (sizeSelection) {
+                //TODO ERROR HANDLE BETTER
+                case 1 -> sandwich.setSize("Small");
+                case 2 -> sandwich.setSize("Medium");
+                case 3 -> sandwich.setSize("Large");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
+            }
+            break;
         }
         input.nextLine();
 
@@ -136,18 +148,22 @@ public class UI {
         }
         System.out.print("Selection: ");
         int breadSelection = input.nextInt();
-        switch (breadSelection) {
-            //TODO ERROR HANDLE BETTER
-            case 1 -> sandwich.setBread("White");
-            case 2 -> sandwich.setBread("Wheat");
-            case 3 -> sandwich.setBread("Rye");
-            case 4 -> sandwich.setBread("Wrap");
-            default -> System.out.println("Invalid selection. Please try again.");
+        while(true){
+            switch (breadSelection) {
+                //TODO ERROR HANDLE BETTER
+                case 1 -> sandwich.setBread("White");
+                case 2 -> sandwich.setBread("Wheat");
+                case 3 -> sandwich.setBread("Rye");
+                case 4 -> sandwich.setBread("Wrap");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
+            }
+            break;
         }
-        input.nextLine();
 
-
-        boolean continueAnswer = true;
+        continueAnswer = true;
         while (continueAnswer) {
             if (!sandwich.getMeat().isEmpty()) {
                 System.out.println("Would you like extra meat? (Y/N)");
@@ -175,7 +191,10 @@ public class UI {
                 case 4 -> sandwich.addMeat("Roast Beef");
                 case 5 -> sandwich.addMeat("Chicken");
                 case 6 -> sandwich.addMeat("Bacon");
-                default -> System.out.println("Invalid selection. Please try again.");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
             }
             input.nextLine();
             System.out.println("Would you like extra meat? (Y/N)");
@@ -211,7 +230,10 @@ public class UI {
                 case 2 -> sandwich.addCheese("Provolone");
                 case 3 -> sandwich.addCheese("Cheddar");
                 case 4 -> sandwich.addCheese("Swiss");
-                default -> System.out.println("Invalid selection. Please try again.");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
             }
             input.nextLine();
             System.out.println("Would you like extra cheese? (Y/N)");
@@ -249,7 +271,10 @@ public class UI {
                 case 7 -> sandwich.addToppings("Pickles");
                 case 8 -> sandwich.addToppings("Guacamole");
                 case 9 -> sandwich.addToppings("Mushrooms");
-                default -> System.out.println("Invalid selection. Please try again.");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
 
             }
             input.nextLine();
@@ -306,13 +331,19 @@ public class UI {
         System.out.println("0) None");
         System.out.print("Selection: ");
         int sideSelection = input.nextInt();
-        switch (sideSelection) {
-            //TODO ERROR HANDLE BETTER
+        while(true) {
+            switch (sideSelection) {
+                //TODO ERROR HANDLE BETTER
 
-            case 0 -> System.out.println("No side selected");
-            case 1 -> sandwich.addSide("Au Jus");
-            case 2 -> sandwich.addSide("Sauce");
-            default -> System.out.println("Invalid selection. Please try again.");
+                case 0 -> System.out.println("No side selected");
+                case 1 -> sandwich.addSide("Au Jus");
+                case 2 -> sandwich.addSide("Sauce");
+                default -> {
+                    System.out.println("Invalid selection. Please try again.");
+                    continue;
+                }
+            }
+            break;
         }
         input.nextLine();
 
@@ -325,13 +356,9 @@ public class UI {
             sandwich.setToastedStatus(false);
         }
         sandwich.calculateTotal();
-//        sandwiches.add(sandwich);
         order.addSandwich(sandwich);
 
-        System.out.println("Your sandwich is added to the order anything else? ");
-
-
-    }
+        System.out.println("Your sandwich is added to the order anything else? ");    }
 
     public static void processAddDrink() {
         Drink drink = new Drink();
@@ -467,8 +494,11 @@ public class UI {
         switch (confirmationSelection) {
             //TODO ERROR HANDLE BETTER
 
-            case 0 -> System.out.println("Order has been canceled.");
-            case 1 -> receiptGenerator.writeReceipt(order);
+            case 0 -> System.out.println("Order canceled. Was there something else you wanted?");
+            case 1 ->  {
+                receiptGenerator.writeReceipt(order);
+                System.out.println("Thank you! Have a nice day!");
+            }
             default -> System.out.println("Invalid selection. Please try again.");
         }
     }

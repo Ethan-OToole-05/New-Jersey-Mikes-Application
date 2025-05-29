@@ -34,6 +34,10 @@ public class Sandwich implements Item {
         this.toastedStatus = toastedStatus;
     }
 
+    /*
+    -All methods below will add meat, cheese, toppings, etc. To our sandwich.
+     */
+
     public void addMeat(String meat) {
         this.meat.add(meat);
     }
@@ -53,6 +57,10 @@ public class Sandwich implements Item {
     public void addSide(String side) {
         this.sides.add(side);
     }
+
+    /*
+    -All of our getters and setters below for each property of what makes a sandwich.
+     */
 
     public double getPrice() {
         return this.price;
@@ -102,6 +110,13 @@ public class Sandwich implements Item {
         this.toastedStatus = toastedStatus;
     }
 
+    /*
+    -Below method will calculate the total sandwich based on size first and based of that we will assign a size index.
+    -That size index will go to the index based on our SandwichHelper's array of prices.
+    -EX: if the sandwich is small our size index is 0. SandwichHelper.sizePrices == 5.50 to represent the bread price of a 4" sandwich.
+    -Then we will look at all the prices that have the same index as our small size.
+     */
+
     @Override
     public double calculateTotal() {
         double total = 0;
@@ -113,35 +128,50 @@ public class Sandwich implements Item {
             this.sizeIndex = 2;
         }
 
+        //Gets the bread price.
         total += SandwichHelper.sizePrices[sizeIndex];
 
+        //Gets the first meat price.
         total += SandwichHelper.meatPrices[sizeIndex];
 
-        //MIGHT BE A PROBLEM FOR MAKING CUSTOM SANDWICHES FROM THE TEMPLATE CHALLENGE LIKE BLT OR CHEESE-STEAK.
-
+        //If there is more than one meat we will add the extra meat price until we're back to the first meat.
         if (meat.size() > 1) {
-            //Might need loop to iterate all the extra meats and cheeses.
             for (int i = meat.size(); i > 1; i--) {
                 total += SandwichHelper.extraMeatPrices[sizeIndex];
             }
         }
 
+        //Adds the first cheese price.
         total += SandwichHelper.cheesePrices[sizeIndex];
 
+        //If there is more than one cheese we will add the extra cheese price until we're back to the first cheese.
         if (cheese.size() > 1) {
             for (int i = cheese.size(); i > 1; i--) {
                 total += SandwichHelper.extraCheesePrices[sizeIndex];
             }
         }
 
+        //Assigns the total price of the sandwich and returns the total.
+
         this.price = total;
 
         return total;
     }
 
+    /*
+    -Prints out the structured way to show the details of the sandwich.
+     */
+
     @Override
     public String toString() {
-        return String.format("Size: %s | Bread: %s | Meat(s): %s | Cheese: %s | Topping(s): %s | Sauce(s): %s | Side: %s | Toasted: %b | Total Price: $%.2f",
-                size, bread, meat, cheese, toppings, sauce, sides, toastedStatus, price);
+        String status = "";
+        if(toastedStatus) {
+            status = "Yes";
+        }
+        else {
+            status = "No";
+        }
+        return String.format("Size: %s | Bread: %s | Meat(s): %s | Cheese: %s | Topping(s): %s | Sauce(s): %s | Side: %s | Toasted: %s | Total Price: $%.2f",
+                size, bread, meat, cheese, toppings, sauce, sides, status, price);
     }
 }
