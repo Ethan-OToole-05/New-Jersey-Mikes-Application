@@ -106,9 +106,15 @@ public class UI {
         boolean continueAnswer = true;
         try {
             if (sandwich instanceof BLT) {
+                System.out.println("Would you like to remove anything from your BLT? (Y/N)");
+                String answer = input.nextLine().toUpperCase() {
+                    //TODO: FIND OUT HOW TO REMOVE STUFF FROM A SANDWICH.
+                    if(answer)
+                }
+
                 System.out.println("Would you like to customize your BLT? (Y/N) ");
                 System.out.print("Selection: ");
-                String answer = input.nextLine().toUpperCase();
+                answer = input.nextLine().toUpperCase();
                 if (answer.equals("N")) {
                     sandwich.calculateTotal();
                     order.addSandwich(sandwich);
