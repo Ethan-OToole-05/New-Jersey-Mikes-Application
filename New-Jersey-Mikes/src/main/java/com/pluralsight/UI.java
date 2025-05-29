@@ -2,8 +2,6 @@ package com.pluralsight;
 
 import com.pluralsight.util.SandwichHelper;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class UI {
@@ -67,7 +65,7 @@ public class UI {
                     break;
                 case 4:
                     processCheckout();
-                    break;
+                    return;
                 case 0:
                     return;
             }
@@ -323,40 +321,46 @@ public class UI {
     }
 
     public static void processCheckout() {
+        ReceiptGenerator receiptGenerator = new ReceiptGenerator();
+        if (order.getTotalPrice() == 0) {
+            System.out.println("You need to order something first");
+            return;
+        }
         System.out.println("*******************");
         System.out.println("Order Details");
         System.out.println("*******************");
-        System.out.println("Sandwiches:");
-        System.out.println(order.getSandwiches());
-        System.out.println("*******************");
-        System.out.println("Drinks: ");
-        System.out.println(order.getDrinks());
-        System.out.println("*******************");
-        System.out.println("Chips: ");
-        System.out.println(order.getChips());
-        System.out.println("*******************");
-        System.out.println("Total: ");
+
+        if (!order.getSandwiches().isEmpty()) {
+            System.out.println("Sandwiches:");
+            System.out.println(order.getSandwiches());
+        } else {
+            System.out.println("No sandwiches");
+        }
+        if (!order.getDrinks().isEmpty()) {
+            System.out.println("Drinks:");
+            System.out.println(order.getDrinks());
+        } else {
+            System.out.println("No drinks");
+        }
+        if (!order.getChips().isEmpty()) {
+            System.out.println("Sandwiches:");
+            System.out.println(order.getChips());
+        } else {
+            System.out.println("No chips");
+        }
+
         System.out.println(order.getTotalPrice());
 
-        ReceiptGenerator receiptGenerator = new ReceiptGenerator();
-        receiptGenerator.writeReceipt(order);
-
-//        if(!sandwiches.isEmpty()) {
-//            for(Sandwich sandwich : sandwiches) {
-//                double sandwich.getPrice();
-//            }
-//        }
-//        if(!drinks.isEmpty()) {
-//            for(Drink drink : drinks) {
-//                order.addDrink(drink);
-//            }
-//        }
-//        if(!chips.isEmpty()) {
-//            for(Chips chip : chips) {
-//                order.addChips(chip);
-//            }
-//        }
-        System.out.println(order.getTotalPrice());
-
+        System.out.println("Please confirm if the information is correct. ");
+        System.out.println("1) Confirm");
+        System.out.println("0) Cancel");
+        System.out.print("Selection: ");
+        int confirmationSelection = input.nextInt();
+        input.nextLine();
+        switch (confirmationSelection) {
+            case 0 -> System.out.println("Order has been canceled.");
+            case 1 -> receiptGenerator.writeReceipt(order);
+            default -> System.out.println("Invalid selection. Please try again.");
+        }
     }
 }

@@ -13,15 +13,20 @@ public class ReceiptGenerator {
     private final String filePath = "src/main/resources/Receipts";
 
     public ReceiptGenerator(){
-
+        File directory = new File(filePath);
+        if(!directory.exists()) {
+            directory.mkdirs();
+        }
     }
 
     public void writeReceipt(Order order) {
+
+        String filename = filePath + "/" + makeTimestamp() + ".txt";
         // (yyyyMMdd-hhmmss.txt
         //- i.e.
         //20230329-121523.txt
         try{
-            File receiptFile = new File(filePath);
+            File receiptFile = new File(filename);
             BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile));
 
             if(!order.getSandwiches().isEmpty()) {
@@ -42,6 +47,7 @@ public class ReceiptGenerator {
                     writer.newLine();
                 }
             }
+            writer.write("Total: $" + order.getTotalPrice());
 
             writer.close();
 
@@ -64,7 +70,7 @@ public class ReceiptGenerator {
 
         LocalDateTime time = LocalDateTime.now();
 
-        String formattedTimestamp = time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss"));
+        String formattedTimestamp = time.format(DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss"));
 
         this.timestamp = formattedTimestamp;
 
