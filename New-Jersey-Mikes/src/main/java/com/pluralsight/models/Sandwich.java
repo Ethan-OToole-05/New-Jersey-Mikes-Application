@@ -1,5 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
+import com.pluralsight.util.Item;
 import com.pluralsight.util.SandwichHelper;
 
 import java.util.ArrayList;

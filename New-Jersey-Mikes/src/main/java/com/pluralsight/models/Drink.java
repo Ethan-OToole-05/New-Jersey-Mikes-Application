@@ -1,6 +1,8 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
-public class Drink implements Item{
+import com.pluralsight.util.Item;
+
+public class Drink implements Item {
     private String flavor;
     private double price;
     private String size;

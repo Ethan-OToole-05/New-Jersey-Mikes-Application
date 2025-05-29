@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.models;
+
+import com.pluralsight.util.Item;
 
 public class Chips implements Item {
     private String nameBrand;

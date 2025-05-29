@@ -1,5 +1,9 @@
 package com.pluralsight;
 
+import com.pluralsight.models.Chips;
+import com.pluralsight.models.Drink;
+import com.pluralsight.models.Order;
+import com.pluralsight.models.Sandwich;
 import com.pluralsight.util.SandwichHelper;
 
 import java.util.Scanner;
@@ -266,6 +270,9 @@ public class UI {
             case 3 -> drink.setSize("Large");
             default -> System.out.println("Invalid selection. Please try again.");
         }
+        if(drink.getSize() == null) {
+            return;
+        }
 
         System.out.println("What kind of drink would you like? ");
         System.out.println("1) Coca-Cola");
@@ -290,12 +297,15 @@ public class UI {
             case 8 -> drink.setFlavor("Mug Root Beer");
             default -> System.out.println("Invalid selection. Please try again.");
         }
+
+        if(drink.getFlavor() == null) {
+            return;
+        }
+
         drink.calculateTotal();
-//        drinks.add(drink);
+
         order.addDrink(drink);
         System.out.println("Your drink is added to the order anything else? ");
-
-//        System.out.println(drinks);
 
     }
 
@@ -311,6 +321,10 @@ public class UI {
             case 1 -> selectionChips.setNameBrand("Doritos");
             case 2 -> selectionChips.setNameBrand("Lays");
             default -> System.out.println("Invalid selection. Please try again.");
+        }
+
+        if(selectionChips.getNameBrand() == null) {
+            return;
         }
 
         selectionChips.calculateTotal();

@@ -1,10 +1,14 @@
 package com.pluralsight;
 
+import com.pluralsight.models.Chips;
+import com.pluralsight.models.Drink;
+import com.pluralsight.models.Order;
+import com.pluralsight.models.Sandwich;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,6 +17,7 @@ public class ReceiptGenerator {
     private final String filePath = "src/main/resources/Receipts";
 
     public ReceiptGenerator(){
+        //Makes our file directory just in cae we don't have the correct filePath first.
         File directory = new File(filePath);
         if(!directory.exists()) {
             directory.mkdirs();
@@ -21,10 +26,12 @@ public class ReceiptGenerator {
 
     public void writeReceipt(Order order) {
 
+        /*
+        -This method will write out receipts depending on what sandwiches, drinks, and chips we have.
+        -Checks if we there are an empty lists of sandwiches, drinks, and chips to print out all the correct details.
+         */
+
         String filename = filePath + "/" + makeTimestamp() + ".txt";
-        // (yyyyMMdd-hhmmss.txt
-        //- i.e.
-        //20230329-121523.txt
         try{
             File receiptFile = new File(filename);
             BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile));
@@ -55,18 +62,13 @@ public class ReceiptGenerator {
         }catch(IOException e) {
             e.printStackTrace();
         }
-
-
-        //make the writer
-
-        //loop through all the order items and write each item to the receipt
-
-        //Write the total cost
-
     }
 
     public String makeTimestamp() {
-        //Make time stamp of the current date and time of the order.
+
+        /*
+        -Makes a timestamp from the current time the order took place to write to the receipt file.
+         */
 
         LocalDateTime time = LocalDateTime.now();
 
