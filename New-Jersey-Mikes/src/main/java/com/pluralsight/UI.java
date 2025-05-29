@@ -221,9 +221,9 @@ public class UI {
                 int sizeSelection = input.nextInt();
                 input.nextLine();
                 switch (sizeSelection) {
-                    case 1 -> sandwich.setSize("Small");
-                    case 2 -> sandwich.setSize("Medium");
-                    case 3 -> sandwich.setSize("Large");
+                    case 1 -> sandwich.setSize("Small (4\")");
+                    case 2 -> sandwich.setSize("Medium (8\")");
+                    case 3 -> sandwich.setSize("Large (12\")");
                     default -> {
                         System.out.println("Invalid selection. Please try again.");
                         continue;

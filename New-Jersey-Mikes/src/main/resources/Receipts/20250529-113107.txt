@@ -1,3 +1,0 @@
-Sandwich: Size: Medium | Bread: White | Meat(s): [Bacon] | Cheese: [Cheddar] | Topping(s): [Lettuce, Tomatoes] | Sauce(s): [Ranch] | Side: [] | Toasted: true | Total Price: $10.50
-Sandwich: Size: Medium | Bread: White | Meat(s): [Steak] | Cheese: [American] | Topping(s): [Peppers] | Sauce(s): [Mayo] | Side: [] | Toasted: true | Total Price: $10.50
-Total: $21.0

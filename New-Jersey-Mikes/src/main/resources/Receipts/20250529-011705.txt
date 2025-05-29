@@ -1,2 +1,0 @@
-Sandwich: | Size: Medium | Bread: White | Meat(s): [Bacon] | Cheese: [Cheddar, Provolone] | Topping(s): [Lettuce, Tomatoes, Jalapenos] | Sauce(s): [Ranch, Ketchup] | Side: [] | Toasted: true | Total Price: $11.10
-Total: $11.1

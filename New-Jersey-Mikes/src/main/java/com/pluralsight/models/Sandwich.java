@@ -125,11 +125,11 @@ public class Sandwich implements Item {
     @Override
     public double calculateTotal() {
         double total = 0;
-        if (this.size.equalsIgnoreCase("Small")) {
+        if (this.size.equalsIgnoreCase("Small (4\")")) {
             this.sizeIndex = 0;
-        } else if (this.size.equalsIgnoreCase("Medium")) {
+        } else if (this.size.equalsIgnoreCase("Medium (8\")")) {
             this.sizeIndex = 1;
-        } else if (this.size.equalsIgnoreCase("Large")) {
+        } else if (this.size.equalsIgnoreCase("Large (12\")")) {
             this.sizeIndex = 2;
         }
 
