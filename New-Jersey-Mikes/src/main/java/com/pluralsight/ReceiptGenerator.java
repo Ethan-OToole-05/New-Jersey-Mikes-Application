@@ -16,10 +16,10 @@ public class ReceiptGenerator {
     private String timestamp = makeTimestamp();
     private final String filePath = "src/main/resources/Receipts";
 
-    public ReceiptGenerator(){
+    public ReceiptGenerator() {
         //Makes our file directory just in cae we don't have the correct filePath first.
         File directory = new File(filePath);
-        if(!directory.exists()) {
+        if (!directory.exists()) {
             directory.mkdirs();
         }
     }
@@ -32,25 +32,25 @@ public class ReceiptGenerator {
          */
 
         String filename = filePath + "/" + makeTimestamp() + ".txt";
-        try{
+        try {
             File receiptFile = new File(filename);
             BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile));
 
-            if(!order.getSandwiches().isEmpty()) {
-                for(Sandwich sandwich : order.getSandwiches()) {
-                    writer.write(sandwich.toString());
+            if (!order.getSandwiches().isEmpty()) {
+                for (Sandwich sandwich : order.getSandwiches()) {
+                    writer.write("Sandwich: | " + sandwich.toString());
                     writer.newLine();
                 }
             }
-            if(!order.getDrinks().isEmpty()) {
-                for(Drink drink : order.getDrinks()) {
-                    writer.write(drink.toString());
+            if (!order.getDrinks().isEmpty()) {
+                for (Drink drink : order.getDrinks()) {
+                    writer.write("Drink: | " + drink.toString());
                     writer.newLine();
                 }
             }
-            if(!order.getChips().isEmpty()) {
-                for(Chips chip : order.getChips()) {
-                    writer.write(chip.toString());
+            if (!order.getChips().isEmpty()) {
+                for (Chips chip : order.getChips()) {
+                    writer.write("Chips: | " + chip.toString());
                     writer.newLine();
                 }
             }
@@ -59,7 +59,7 @@ public class ReceiptGenerator {
             writer.close();
 
 
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

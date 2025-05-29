@@ -86,7 +86,7 @@ public class UI {
 
     public static void processAddSandwich(Sandwich sandwich) {
 
-        if(sandwich instanceof BLT) {
+        if (sandwich instanceof BLT) {
             System.out.println("Would you like to customize your BLT? (Y/N) ");
             System.out.print("Selection: ");
             String answer = input.nextLine().toUpperCase();
@@ -97,7 +97,7 @@ public class UI {
                 return;
             }
         }
-        if(sandwich instanceof PhillyCheeseSteak) {
+        if (sandwich instanceof PhillyCheeseSteak) {
             System.out.println("Would you like to customize your Philly Cheese Steak? (Y/N) ");
             System.out.print("Selection: ");
             String answer = input.nextLine().toUpperCase();
@@ -155,7 +155,7 @@ public class UI {
             System.out.print("Selection: ");
 
             int meatSelection = input.nextInt();
-            if(!sandwich.getMeat().isEmpty()) {
+            if (!sandwich.getMeat().isEmpty()) {
                 System.out.println("Would you like extra meat? (Y/N)");
                 System.out.print("Selection: ");
                 String answer = input.nextLine().toUpperCase();
@@ -310,7 +310,7 @@ public class UI {
             case 3 -> drink.setSize("Large");
             default -> System.out.println("Invalid selection. Please try again.");
         }
-        if(drink.getSize() == null) {
+        if (drink.getSize() == null) {
             return;
         }
 
@@ -338,7 +338,7 @@ public class UI {
             default -> System.out.println("Invalid selection. Please try again.");
         }
 
-        if(drink.getFlavor() == null) {
+        if (drink.getFlavor() == null) {
             return;
         }
 
@@ -363,7 +363,7 @@ public class UI {
             default -> System.out.println("Invalid selection. Please try again.");
         }
 
-        if(selectionChips.getNameBrand() == null) {
+        if (selectionChips.getNameBrand() == null) {
             return;
         }
 
@@ -386,24 +386,33 @@ public class UI {
 
         if (!order.getSandwiches().isEmpty()) {
             System.out.println("Sandwiches:");
-            System.out.println(order.getSandwiches());
+            for(Sandwich sandwich : order.getSandwiches()) {
+                System.out.println(sandwich);
+                System.out.println();
+            }
         } else {
-            System.out.println("No sandwiches");
+            System.out.println("No sandwiches.");
         }
         if (!order.getDrinks().isEmpty()) {
             System.out.println("Drinks:");
-            System.out.println(order.getDrinks());
+            for(Drink drink : order.getDrinks()) {
+                System.out.println(drink);
+                System.out.println();
+            }
         } else {
-            System.out.println("No drinks");
+            System.out.println("No drinks.");
         }
         if (!order.getChips().isEmpty()) {
             System.out.println("Sandwiches:");
-            System.out.println(order.getChips());
+            for(Chips chips : order.getChips()) {
+                System.out.println(chips);
+                System.out.println();
+            }
         } else {
-            System.out.println("No chips");
+            System.out.println("No chips.");
         }
 
-        System.out.println(order.getTotalPrice());
+        System.out.println("Your Total is: $" + order.getTotalPrice());
 
         System.out.println("Please confirm if the information is correct. ");
         System.out.println("1) Confirm");

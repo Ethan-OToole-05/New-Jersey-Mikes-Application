@@ -1,0 +1,2 @@
+Size: Medium | Bread: Wheat | Meat(s): [Salami] | Cheese: [Provolone, Cheddar] | Topping(s): [Peppers, Jalapenos] | Sauce(s): [Mayo] | Side: [] | Toasted: true | Total Price: $11.10
+Total: $11.1

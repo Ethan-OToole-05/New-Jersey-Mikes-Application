@@ -9,7 +9,7 @@ public class BLT extends Sandwich {
 
     public BLT() {
         super(
-                //BASE PRICE IS: 10.50
+                //BASE PRICE IS: $10.50
 
                 SandwichHelper.sizes[1],
                 1,

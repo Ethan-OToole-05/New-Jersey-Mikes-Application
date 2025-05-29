@@ -34,7 +34,7 @@ public class Order {
     }
 
     public List<Drink> getDrinks() {
-       return drinks;
+        return drinks;
     }
 
     public void addChips(Chips chips) {
@@ -47,18 +47,18 @@ public class Order {
 
     public double getTotalPrice() {
         double grandTotal = 0;
-        if(!sandwiches.isEmpty()) {
-            for(Sandwich sandwich : sandwiches) {
+        if (!sandwiches.isEmpty()) {
+            for (Sandwich sandwich : sandwiches) {
                 grandTotal += sandwich.getPrice();
             }
         }
-        if(!drinks.isEmpty()) {
-            for(Drink drink : drinks) {
+        if (!drinks.isEmpty()) {
+            for (Drink drink : drinks) {
                 grandTotal += drink.getPrice();
             }
         }
-        if(!chips.isEmpty()) {
-            for(Chips chip : chips) {
+        if (!chips.isEmpty()) {
+            for (Chips chip : chips) {
                 grandTotal += chip.getPrice();
             }
         }

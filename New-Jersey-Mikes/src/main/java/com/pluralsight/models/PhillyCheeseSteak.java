@@ -1,7 +1,26 @@
 package com.pluralsight.models;
 
-public class PhillyCheeseSteak extends Sandwich{
+import com.pluralsight.util.SandwichHelper;
 
+import java.util.ArrayList;
+import java.util.List;
 
+public class PhillyCheeseSteak extends Sandwich {
+
+    public PhillyCheeseSteak() {
+        super(
+                //BASE PRICE IS: $10.50
+
+                SandwichHelper.sizes[1],
+                1,
+                "White",
+                new ArrayList<>(List.of("Steak")),
+                new ArrayList<>(List.of("American")),
+                new ArrayList<>(List.of("Peppers")),
+                new ArrayList<>(List.of("Mayo")),
+                new ArrayList<>(),
+                true
+        );
+    }
 
 }
