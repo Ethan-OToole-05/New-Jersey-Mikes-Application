@@ -11,8 +11,7 @@ public class PhillyCheeseSteak extends Sandwich {
         super(
                 /*
                 -We are pre-assigning all the information that makes a Philly Cheese Steak sandwich everytime a new one is made.
-                 */
-
+                */
                 SandwichHelper.sizes[1],
                 1,
                 "White",

@@ -9,11 +9,9 @@ public class BLT extends Sandwich {
 
     public BLT() {
         super(
-
                 /*
                 -We are pre-assigning all the information that makes a BLT sandwich everytime a new BLT sandwich is made.
-                 */
-
+                */
                 SandwichHelper.sizes[1],
                 1,
                 "White",

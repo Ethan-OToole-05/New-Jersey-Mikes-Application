@@ -17,7 +17,9 @@ public class UI {
             try {
                 //Resets for a fresh new order everytime an order is canceled.
                 order = new Order();
+                System.out.println("*******************");
                 System.out.println("Main Menu");
+                System.out.println("*******************");
                 System.out.println("1) Place New Order");
                 System.out.println("0) Exit");
                 System.out.print("Selection: ");
@@ -41,12 +43,11 @@ public class UI {
     }
 
     public static void processOrder() {
-        //Make a new order of sandwiches for every new order to reset.
-        System.out.println("*******************");
-        System.out.println("Order Menu");
-        System.out.println("*******************");
         while (true) {
             try {
+                System.out.println("*******************");
+                System.out.println("Order Menu");
+                System.out.println("*******************");
                 System.out.println("Please select an option below: ");
                 System.out.println("1) Add Sandwich");
                 System.out.println("2) Add Drink");
@@ -59,7 +60,7 @@ public class UI {
                 switch (selection) {
                     case 1:
                         System.out.println("What sandwich would you like? :");
-                        System.out.println("1) BLT");
+                        System.out.println("1) BLT ");
                         System.out.println("2) Philly Cheese Steak");
                         System.out.println("3) Custom made");
                         int sandwichSelection = input.nextInt();
@@ -94,14 +95,16 @@ public class UI {
         }
     }
 
-    public static void processAddSandwich(Sandwich sandwich) {
-
+    public static void processAddSandwich(Sandwich sandwich)   {
         /*
         -The first process of adding a message is to check if it is a BLT or Philly Cheese Steak.
-        -If not then we know it's a custom sandwich to build.
+        -If not then we know it's a custom sandwich to check to remove ingredients and customize it after removing.
          */
         boolean continueAnswer = true;
         try {
+            System.out.println("*******************");
+            System.out.println("Sandwich Menu");
+            System.out.println("*******************");
             if (sandwich instanceof BLT) {
                 System.out.println("Would you like to remove any ingredients from your BLT? (Y/N)");
                 String answer = input.nextLine().trim().toUpperCase();
@@ -481,6 +484,9 @@ public class UI {
 
     public static void processAddDrink() {
         try {
+            System.out.println("*******************");
+            System.out.println("Drink Menu");
+            System.out.println("*******************");
             Drink drink = new Drink();
             System.out.println("What size drink would you like? ");
             System.out.println("1) Small");
@@ -542,6 +548,9 @@ public class UI {
 
     public static void processAddChips() {
         try {
+            System.out.println("*******************");
+            System.out.println("Chips Menu");
+            System.out.println("*******************");
             Chips selectionChips = new Chips();
             System.out.println("What chips would you like? ");
             System.out.println("1) Doritos");
@@ -580,7 +589,6 @@ public class UI {
             System.out.println("*******************");
             System.out.println("Order Details");
             System.out.println("*******************");
-
             if (!order.getSandwiches().isEmpty()) {
                 System.out.println("Sandwiches:");
                 for (Sandwich sandwich : order.getSandwiches()) {

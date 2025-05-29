@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements Item {
+
+    /*
+    -All our properties below for what makes a sandwich.
+     */
+
     protected double price;
     protected String size;
     protected int sizeIndex = 0;
@@ -115,7 +120,7 @@ public class Sandwich implements Item {
     -That size index will go to the index based on our SandwichHelper's array of prices.
     -EX: if the sandwich is small our size index is 0. SandwichHelper.sizePrices == 5.50 to represent the bread price of a 4" sandwich.
     -Then we will look at all the prices that have the same index as our small size.
-     */
+    */
 
     @Override
     public double calculateTotal() {
@@ -160,15 +165,14 @@ public class Sandwich implements Item {
 
     /*
     -Prints out the structured way to show the details of the sandwich.
-     */
+    */
 
     @Override
     public String toString() {
         String status = "";
-        if(toastedStatus) {
+        if (toastedStatus) {
             status = "Yes";
-        }
-        else {
+        } else {
             status = "No";
         }
         return String.format("Size: %s | Bread: %s | Meat(s): %s | Cheese: %s | Topping(s): %s | Sauce(s): %s | Side: %s | Toasted: %s | Total Price: $%.2f",

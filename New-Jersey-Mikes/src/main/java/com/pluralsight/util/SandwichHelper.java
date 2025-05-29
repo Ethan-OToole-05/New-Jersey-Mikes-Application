@@ -1,6 +1,11 @@
 package com.pluralsight.util;
 
 public class SandwichHelper {
+
+    /*
+    -SandwichHelper will help keep all of our names of items and the prices ready to use.
+     */
+
     public static final String[] sizes = {"Small (4\")", "Medium (8\")", "Large (12\")"};
     public static final String[] meats = {"Steak", "Ham", "Salami", "Roast beef", "Chicken", "Bacon"};
     public static final String[] cheese = {"American", "Provolone", "Cheddar", "Swiss"};

@@ -17,7 +17,7 @@ public class ReceiptGenerator {
     private final String filePath = "src/main/resources/Receipts";
 
     public ReceiptGenerator() {
-        //Makes our file directory just in cae we don't have the correct filePath first.
+        //Makes our file directory just in case we don't have the correct filePath first.
         File directory = new File(filePath);
         if (!directory.exists()) {
             directory.mkdirs();

@@ -15,11 +15,19 @@ public class Order {
 
     }
 
+    /*
+    -Constructor used to hold the total sandwiches, drinks, and chips.
+     */
+
     public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
     }
+
+    /*
+    -All our getters and adding methods to keep track of every sandwich, drink, and chips added to our order.
+     */
 
     public void addSandwich(Sandwich sandwich) {
         this.sandwiches.add(sandwich);
@@ -44,6 +52,10 @@ public class Order {
     public List<Chips> getChips() {
         return chips;
     }
+
+    /*
+    -getTotalPrice will take in all of our sandwiches, drinks, and chips and give us a grand total to show the user.
+     */
 
     public double getTotalPrice() {
         double grandTotal = 0;

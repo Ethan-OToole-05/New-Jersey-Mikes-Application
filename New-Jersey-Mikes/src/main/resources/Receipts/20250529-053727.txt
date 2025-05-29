@@ -1,0 +1,5 @@
+Sandwich: | Size: Medium (8") | Bread: White | Meat(s): [Bacon] | Cheese: [Cheddar] | Topping(s): [Lettuce, Tomatoes] | Sauce(s): [Ranch] | Side: [] | Toasted: Yes | Total Price: $10.50
+Sandwich: | Size: Medium (8") | Bread: White | Meat(s): [Steak] | Cheese: [American] | Topping(s): [Peppers] | Sauce(s): [Mayo] | Side: [] | Toasted: Yes | Total Price: $10.50
+Drink: | Flavor: Fanta | Size: Large | Total Price: $3.00
+Chips: | Brand: Lays | Total Price: $1.50
+Total: $25.5
