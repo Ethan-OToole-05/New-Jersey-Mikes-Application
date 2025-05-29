@@ -1,7 +1,7 @@
 package com.pluralsight.util;
 
 public class SandwichHelper {
-    public static final String[] sizes = {"Small", "Medium", "Large"};
+    public static final String[] sizes = {"Small (4\")", "Medium (8\")", "Large (12\")"};
     public static final String[] meats = {"Steak", "Ham", "Salami", "Roast beef", "Chicken", "Bacon"};
     public static final String[] cheese = {"American", "Provolone", "Cheddar", "Swiss"};
     public static final String[] regularToppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"};
