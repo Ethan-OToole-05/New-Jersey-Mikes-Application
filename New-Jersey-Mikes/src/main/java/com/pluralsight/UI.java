@@ -95,7 +95,7 @@ public class UI {
         }
     }
 
-    public static void processAddSandwich(Sandwich sandwich)   {
+    public static void processAddSandwich(Sandwich sandwich) {
         /*
         -The first process of adding a message is to check if it is a BLT or Philly Cheese Steak.
         -If not then we know it's a custom sandwich to check to remove ingredients and customize it after removing.
@@ -235,7 +235,6 @@ public class UI {
                 input.nextLine();
             }
         }
-        input.nextLine();
 
         System.out.println("What bread would you like? ");
         for (int i = 0; i < SandwichHelper.bread.length; i++) {
@@ -308,7 +307,6 @@ public class UI {
                 input.nextLine();
             }
         }
-        input.nextLine();
 
         continueAnswer = true;
         if (!sandwich.getCheese().isEmpty()) {
@@ -325,7 +323,6 @@ public class UI {
                 for (int i = 0; i < SandwichHelper.cheese.length; i++) {
                     System.out.printf("%d) %s\n", i + 1, SandwichHelper.cheese[i]);
                 }
-                System.out.println("0) None"); //HANDLE LATER
                 System.out.print("Selection: ");
                 int cheeseSelection = input.nextInt();
                 switch (cheeseSelection) {
@@ -384,7 +381,7 @@ public class UI {
 
                 }
                 input.nextLine();
-                System.out.println("Would you like an extra topping?");
+                System.out.println("Would you like an extra topping (Y/N)?");
                 System.out.print("Selection: ");
                 String answer = input.nextLine().toUpperCase();
                 if (!answer.equals("Y")) {
@@ -412,7 +409,6 @@ public class UI {
                 for (int i = 0; i < SandwichHelper.sauces.length; i++) {
                     System.out.printf("%d) %s\n", i + 1, SandwichHelper.sauces[i]);
                 }
-                System.out.println("0) None"); //HANDLE LATER
                 System.out.print("Selection: ");
                 int sauceSelection = input.nextInt();
                 switch (sauceSelection) {
@@ -425,7 +421,7 @@ public class UI {
                     default -> System.out.println("Invalid selection. Please try again.");
                 }
                 input.nextLine();
-                System.out.println("Would you like more sauce?");
+                System.out.println("Would you like more sauce? (Y/N)");
                 System.out.print("Selection: ");
                 String answer = input.nextLine().toUpperCase();
                 if (!answer.equals("Y")) {
@@ -447,7 +443,7 @@ public class UI {
         while (true) {
             try {
                 switch (sideSelection) {
-                    case 0 -> sandwich.addSide("None");
+                    case 0 -> {} //Keeps sides empty.
                     case 1 -> sandwich.addSide("Au Jus");
                     case 2 -> sandwich.addSide("Sauce");
                     default -> {
@@ -496,8 +492,6 @@ public class UI {
             int drinkSizeSelection = input.nextInt();
             input.nextLine();
             switch (drinkSizeSelection) {
-
-
                 case 1 -> drink.setSize("Small");
                 case 2 -> drink.setSize("Medium");
                 case 3 -> drink.setSize("Large");

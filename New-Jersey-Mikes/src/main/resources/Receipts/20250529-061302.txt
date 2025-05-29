@@ -1,0 +1,4 @@
+Sandwich: | Size: Large | Bread: Rye | Meat(s): [Steak, Roast Beef] | Cheese: [Provolone] | Topping(s): [Lettuce, Pickles] | Sauce(s): [Ranch] | Side: [None] | Toasted: Yes | Total Price: $15.25
+Drink: | Flavor: Coca-Cola | Size: Large | Total Price: $3.00
+Chips: | Brand: Doritos | Total Price: $1.50
+Total: $19.75
