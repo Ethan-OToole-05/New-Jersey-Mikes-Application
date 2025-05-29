@@ -21,23 +21,6 @@ public class Sandwich implements Item {
 
     }
 
-//    public Sandwich(String size) {
-//
-//    }
-
-//    public Sandwich(double price, String size, String bread, List<String> meat, List<String> cheese, List<String> toppings, List<String> sauce, List<String> sides, boolean toastedStatus) {
-//        this.price = price;
-//        this.size = size;
-//        this.bread = bread;
-//        this.meat = meat;
-//        this.cheese = cheese;
-//        this.toppings = toppings;
-//        this.sauce = sauce;
-//        this.sides = sides;
-//        this.toastedStatus = toastedStatus;
-//    }
-
-
     public void addMeat(String meat) {
         this.meat.add(meat);
     }
@@ -121,6 +104,8 @@ public class Sandwich implements Item {
 
         total += SandwichHelper.meatPrices[sizeIndex];
 
+        //MIGHT BE A PROBLEM FOR MAKING CUSTOM SANDWICHES FROM THE TEMPLATE CHALLENGE LIKE BLT OR CHEESE-STEAK.
+
         if (meat.size() > 1) {
             //Might need loop to iterate all the extra meats and cheeses.
             for (int i = meat.size(); i > 1; i--) {
@@ -144,6 +129,6 @@ public class Sandwich implements Item {
     @Override
     public String toString() {
         return String.format("Size: %s | Bread: %s | Meat(s): %s | Cheese: %s | Topping(s): %s | Sauce(s): %s | Side: %s | Toasted: %b | Total Price: $%.2f",
-                size, bread, meat, cheese, toppings, sauce, sides, toastedStatus, price );
+                size, bread, meat, cheese, toppings, sauce, sides, toastedStatus, price);
     }
 }

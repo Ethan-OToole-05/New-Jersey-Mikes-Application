@@ -66,7 +66,4 @@ public class Order {
         return grandTotal;
 
     }
-
-    //TODO: ADD toString SUMMARY FOR ALL ITEMS AND TOTAL PRICE.
-    //
 }
