@@ -7,9 +7,6 @@ import java.util.Scanner;
 
 public class UI {
     static Scanner input = new Scanner(System.in);
-    //    static List<Sandwich> sandwiches;
-//    static List<Drink> drinks;
-//    static List<Chips> chips;
     static Order order = new Order();
 
     public static void display() {
@@ -36,7 +33,7 @@ public class UI {
                     default:
                         System.out.println("Invalid Input. Please Try Again.");
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 input.nextLine();
             }
@@ -106,13 +103,96 @@ public class UI {
         boolean continueAnswer = true;
         try {
             if (sandwich instanceof BLT) {
-                System.out.println("Would you like to remove anything from your BLT? (Y/N)");
-                String answer = input.nextLine().toUpperCase() {
-                    //TODO: FIND OUT HOW TO REMOVE STUFF FROM A SANDWICH.
-                    if(answer)
-                }
+                System.out.println("Would you like to remove any ingredients from your BLT? (Y/N)");
+                String answer = input.nextLine().trim().toUpperCase();
+                if (answer.equalsIgnoreCase("Y")) {
+                    while (true) {
+                        System.out.println("Your BLT contains:");
+                        System.out.println("Meat(s): " + sandwich.getMeat());
+                        System.out.println("Cheese: " + sandwich.getCheese());
+                        System.out.println("Toppings: " + sandwich.getToppings());
+                        System.out.println("Sauce: " + sandwich.getSauce());
+                        System.out.println("Enter an ingredient to remove: (type '0' to finish) ");
+                        System.out.println("Selection: ");
+                        String removeItem = input.nextLine().trim().toLowerCase();
+                        if (removeItem.equalsIgnoreCase("0")) {
+                            break;
+                        }
 
+                        boolean removed = false;
+
+                        /*
+                        -Each 'removeIf()' is going to loop through the list for example calling getMeat() to get all the meat from the sandwich.
+                        -Then for each item (lambda parameter) that acts as a placeholder for any element will find a match
+                        -If it matches then it will remove the ingredient from the sandwich before customizing.
+                        */
+
+                        if (sandwich.getMeat().removeIf(meat -> meat.equalsIgnoreCase(removeItem))) removed = true;
+                        else if (sandwich.getCheese().removeIf(meat -> meat.equalsIgnoreCase(removeItem)))
+                            removed = true;
+                        else if (sandwich.getToppings().removeIf(topping -> topping.equalsIgnoreCase(removeItem)))
+                            removed = true;
+                        else if (sandwich.getSauce().removeIf(sauce -> sauce.equalsIgnoreCase(removeItem)))
+                            removed = true;
+
+                        if (removed) {
+                            System.out.println(removeItem + " was removed.");
+                        } else {
+                            System.out.println(removeItem + " was not found in the sandwich.");
+                        }
+                    }
+                }
                 System.out.println("Would you like to customize your BLT? (Y/N) ");
+                System.out.print("Selection: ");
+                answer = input.nextLine().trim().toUpperCase();
+                if (answer.equalsIgnoreCase("N")) {
+                    sandwich.calculateTotal();
+                    order.addSandwich(sandwich);
+                    System.out.println("Your sandwich has been added to the order.");
+                    return;
+                }
+            }
+
+            if (sandwich instanceof PhillyCheeseSteak) {
+                System.out.println("Would you like to remove any ingredients from your Philly Cheese Steak? (Y/N)");
+                String answer = input.nextLine().trim().toUpperCase();
+                if (answer.equalsIgnoreCase("Y")) {
+                    while (true) {
+                        System.out.println("Your Philly Cheese Steak contains:");
+                        System.out.println("Meat(s): " + sandwich.getMeat());
+                        System.out.println("Cheese: " + sandwich.getCheese());
+                        System.out.println("Toppings: " + sandwich.getToppings());
+                        System.out.println("Sauce: " + sandwich.getSauce());
+                        System.out.println("Enter an ingredient to remove: (type '0' to finish) ");
+                        System.out.println("Selection: ");
+                        String removeItem = input.nextLine().trim().toLowerCase();
+                        if (removeItem.equalsIgnoreCase("0")) {
+                            break;
+                        }
+
+                        boolean removed = false;
+                        /*
+                         -Each 'removeIf()' is going to loop through the list for example calling getMeat() to get all the meat from the sandwich.
+                         -Then for each item (lambda parameter) that acts as a placeholder for any element will find a match
+                         -If it matches then it will remove the ingredient from the sandwich before customizing.
+                        */
+
+                        if (sandwich.getMeat().removeIf(meat -> meat.equalsIgnoreCase(removeItem))) removed = true;
+                        else if (sandwich.getCheese().removeIf(cheese -> cheese.equalsIgnoreCase(removeItem)))
+                            removed = true;
+                        else if (sandwich.getToppings().removeIf(topping -> topping.equalsIgnoreCase(removeItem)))
+                            removed = true;
+                        else if (sandwich.getSauce().removeIf(sauce -> sauce.equalsIgnoreCase(removeItem)))
+                            removed = true;
+
+                        if (removed) {
+                            System.out.println(removeItem + " was removed.");
+                        } else {
+                            System.out.println(removeItem + " was not found in the sandwich.");
+                        }
+                    }
+                }
+                System.out.println("Would you like to customize your Philly Cheese Steak? (Y/N) ");
                 System.out.print("Selection: ");
                 answer = input.nextLine().toUpperCase();
                 if (answer.equals("N")) {
@@ -122,18 +202,7 @@ public class UI {
                     return;
                 }
             }
-            if (sandwich instanceof PhillyCheeseSteak) {
-                System.out.println("Would you like to customize your Philly Cheese Steak? (Y/N) ");
-                System.out.print("Selection: ");
-                String answer = input.nextLine().toUpperCase();
-                if (answer.equals("N")) {
-                    sandwich.calculateTotal();
-                    order.addSandwich(sandwich);
-                    System.out.println("Your sandwich has been added to the order.");
-                    return;
-                }
-            }
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Invalid input. Please try again.");
             input.nextLine();
         }
@@ -464,7 +533,7 @@ public class UI {
 
             order.addDrink(drink);
             System.out.println("Your drink is added to the order anything else? ");
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Invalid input. Please try again.");
             input.nextLine();
         }
@@ -494,7 +563,7 @@ public class UI {
             order.addChips(selectionChips);
 
             System.out.println("Your chips is added to the order anything else? ");
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Invalid input. Please try again.");
             input.nextLine();
         }
@@ -557,7 +626,7 @@ public class UI {
                 }
                 default -> System.out.println("Invalid selection. Please try again.");
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Invalid input. Please try again.");
             input.nextLine();
         }

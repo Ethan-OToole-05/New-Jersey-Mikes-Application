@@ -1,0 +1,2 @@
+Sandwich: | Size: Medium | Bread: Rye | Meat(s): [Bacon, Salami] | Cheese: [Cheddar] | Topping(s): [Lettuce, Tomatoes] | Sauce(s): [Ranch] | Side: [None] | Toasted: Yes | Total Price: $11.50
+Total: $11.5
