@@ -1,0 +1,4 @@
+Sandwich: | Size: Medium (8") | Bread: Wheat | Meat(s): [Chicken, Steak] | Cheese: [Provolone] | Topping(s): [Lettuce, Pickles] | Sauce(s): [Ranch] | Side: [Sauce] | Toasted: Yes | Total Price: $11.50
+Drink: | Flavor: Mug Root Beer | Size: Large | Total Price: $3.00
+Chips: | Brand: Doritos | Total Price: $1.50
+Total: $16.0
